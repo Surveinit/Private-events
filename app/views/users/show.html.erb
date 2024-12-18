@@ -1,4 +1,4 @@
-<h1>Wassup <%= @user.email %></h1>
+<h1>Wassup <%= current_user.email %></h1>
 
 <% if @created_events.any? %>
 <p>Events held by you</p>
@@ -10,3 +10,4 @@
 <% else %>
   <p>No events created!</p>
 <% end %>
+  <%= link_to "Create New Event", new_event_path %>

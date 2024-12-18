@@ -1,0 +1,10 @@
+<h2>Evento's</h2>
+<% if @created_events.any? %>
+  <ol>
+    <% @created_events.each do |event| %>
+      <li>
+        <%= link_to event.name, event_path(event) %> by <%= event.creator.email %> 
+      </li>
+    <% end %>
+  </ol>
+<% end %>
