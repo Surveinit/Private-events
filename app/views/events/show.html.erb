@@ -1,3 +1,21 @@
 <h2><%= @event.name %></h2>
 <p><%= @event.description %></p>
 <p>on: <%= @event.event_date%></p>
+
+<% if user_signed_in? %>
+ <% if @event.attendees.include?(current_user) %>
+    <% @attendance = @event.attendances.find_by(user: current_user) %>
+   <%= button_to 'Exit', event_attendance_path(@event, @attendance), method: :delete, data: {confirm: 'Are you sure?'} %>
+ <% else %>
+   <%= button_to 'Enter', event_attendances_path(@event), method: :post, data: {confirm: 'Are you sure?'} %>
+ <% end %>
+ <% else %>
+   <p>Please sign Up!</p>
+<% end %>
+
+<h2>Fellow Attendees</h2>
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= attendee.email %></li>
+  <% end %>
+</ul>
