@@ -2,15 +2,23 @@
 <p>Where you make and invite!</p>
 
 <ul>
-  <p>📅 Future Events:</p>
-  <% Event.future.each do |event| %>
-    <li><%= link_to event.name, event_path(event) %> on <%= event.event_date %></li>
+  <strong>📅 Future Events:</strong>
+  <% if Event.future.any? %>
+    <% Event.future.each do |event| %>
+      <li><%= link_to event.name, event_path(event) %> on <%= event.event_date %></li>
+    <% end %>
+  <% else %>
+    <p>No upcoming events<%= link_to 'creating an event', new_event_path, class: 'btn btn-primary' %>.</p>
   <% end %>
 </ul>
 
 <ul>
-  <p>⏪ Past Events:</p>
-  <% Event.past.each do |event| %>
-    <li><%= link_to event.name, event_path(event) %> on <%= event.event_date %></li>
+  <strong>⏪ Past Events:</strong>
+  <% if Event.past.any? %>
+    <% Event.past.each do |event| %>
+      <li><%= link_to event.name, event_path(event) %> on <%= event.event_date %></li>
+    <% end %>
+  <% else %>
+    <p>Stay tuned for updates or just create your very first event.</p>
   <% end %>
 </ul>
