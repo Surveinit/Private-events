@@ -25,12 +25,17 @@ class EventsController < ApplicationController
     end
   end
 
-  def past
-    @past_events = @attended_events.where("event_date <= ?", Date.today)
+  def edit
+    @event = Event.find(params[:id])
   end
 
-  def future
-    @future_events = @attended_events.where("event_date >= ?", Date.today)
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to(@event, notice: "Event was updated successfully!")
+    else
+      render(:edit)
+    end
   end
 
   private

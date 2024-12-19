@@ -1,4 +1,6 @@
-<h1>👋 Wassup <%= current_user.email %></h1>
+<% # Dashboard view %>
+
+<h2>👋 Wassup <%= current_user.email %></h2>
 <%= link_to "Create new Event", new_event_path %>
 
 <% if @created_events.any? %>
