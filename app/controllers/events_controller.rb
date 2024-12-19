@@ -25,6 +25,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def past
+    @past_events = @attended_events.where("event_date <= ?", Date.today)
+  end
+
+  def future
+    @future_events = @attended_events.where("event_date >= ?", Date.today)
+  end
+
   private
 
   def event_params

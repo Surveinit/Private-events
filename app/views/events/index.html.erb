@@ -2,12 +2,16 @@
 <p>Where you make and invite!</p>
 <%= link_to "View Dashboard", user_path(@user) %>
 
-<% if @events.any? %>
-  <ol>
-    <% @events.each do |event| %>
-      <li>
-        <%= link_to event.name, event_path(event) %> by <%= event.creator.email %> 
-      </li>
-    <% end %>
-  </ol>
-<% end %>
+<ul>
+  <p>📅 Future Events:</p>
+  <% Event.future.each do |event| %>
+    <li><%= link_to event.name, event_path(event) %> on <%= event.event_date %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <p>⏪ Past Events:</p>
+  <% Event.past.each do |event| %>
+    <li><%= link_to event.name, event_path(event) %> on <%= event.event_date %></li>
+  <% end %>
+</ul>
