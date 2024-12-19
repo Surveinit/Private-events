@@ -1,24 +1,35 @@
-<h1>Wassup <%= current_user.email %></h1>
+<h1>👋 Wassup <%= current_user.email %></h1>
 
 <% if @created_events.any? %>
-<p>Events held by you</p>
+<p>⏰ Events held by you</p>
   <ul>
     <% @created_events.each do |event| %>
       <li><%= link_to event.name, event_path(event) %>- <%= event.event_date %></li>
     <% end %>
   </ul>
 <% else %>
-  <p>No events created!</p>
+  <p>😢 No events created!</p>
 <% end %>
   <%= link_to "Create New Event", new_event_path %>
 
 <% if @attended_events.any? %>
-<p>Events you are attending</p>
-  <ul>
-    <% @attended_events.each do |event| %>
-      <li><%= link_to event.name, event_path(event) %>- <%= event.event_date %></li>
-    <% end %>
-  </ul>
+<p>✅ Events you are attending</p>
+<% @future_events = @attended_events.where("event_date >= ?", Date.today) %>
+<% @past_events = @attended_events.where("event_date <= ?", Date.today) %>
+<ul>
+  <p>📅 Future Events:</p>
+  <% @future_events.each do |event| %>
+    <li><%= link_to event.name, event_path(event) %>- <%= event.event_date %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <p>⏪ Past Events:</p>
+  <% @past_events.each do |event| %>
+    <li><%= link_to event.name, event_path(event) %>- <%= event.event_date %></li>
+  <% end %>
+</ul>
+
 <% else %>
-  <p>You are attending no events!</p>
+  <p>😔 You are attending no Events!</p>
 <% end %>

@@ -28,7 +28,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    # Replace with your actual attributes
     params.require(:event).permit(:name, :description, :event_date)
   end
 end
