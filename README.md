@@ -1,4 +1,4 @@
-# Private Events
+# Evento🍸- Private Events
 
 ## Description
 Private Events is a web application that allows users to create and attend events. It demonstrates the functionality of associations between models in a Ruby on Rails application.
