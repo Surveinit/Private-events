@@ -20,8 +20,10 @@
 
   <body>
     <div class="nav">
-      <%= link_to "Home", root_path %>
-      <%= link_to "Dashboard", user_path(@user) %>
+      <% if user_signed_in? %>
+        <%= link_to "Home", root_path %>
+        <%= link_to "Dashboard", user_path(current_user) %>
+      <% end %>
     </div>
 
     <% if notice.present? %>
