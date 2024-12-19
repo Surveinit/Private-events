@@ -19,14 +19,14 @@
 <ul>
   <p>📅 Future Events:</p>
   <% @future_events.each do |event| %>
-    <li><%= link_to event.name, event_path(event) %>- <%= event.event_date %></li>
+    <li><%= link_to event.name, event_path(event) %> on <%= event.event_date %></li>
   <% end %>
 </ul>
 
 <ul>
   <p>⏪ Past Events:</p>
   <% @past_events.each do |event| %>
-    <li><%= link_to event.name, event_path(event) %>- <%= event.event_date %></li>
+    <li><%= link_to event.name, event_path(event) %> on <%= event.event_date %></li>
   <% end %>
 </ul>
 
