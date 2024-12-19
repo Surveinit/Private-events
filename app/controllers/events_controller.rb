@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [ :show, :edit, :update, :destroy ]
   def index
     @user = current_user
     @events = Event.all
@@ -26,11 +27,10 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
+    @event
   end
 
   def update
-    @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to(@event, notice: "Event was updated successfully!")
     else
@@ -38,7 +38,19 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    if @event.destroy
+      redirect_to(events_url, notice: "Event was successfully deleted!")
+    else
+      redirect_to(events_url, alert: "Error deleting event: #{@event.errors.full_messages.join(", ")}")
+    end
+  end
+
   private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def event_params
     params.require(:event).permit(:name, :description, :event_date)
