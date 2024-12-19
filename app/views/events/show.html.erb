@@ -21,9 +21,9 @@
    <p>Please sign Up!</p>
 <% end %>
 
-<h2>Fellow Attendees</h2>
-<ul>
+<strong>👥 Fellow Attendees</strong>
+<ol>
   <% @event.attendees.each do |attendee| %>
     <li><%= attendee.email %></li>
   <% end %>
-</ul>
+</ol>
