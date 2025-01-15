@@ -1,29 +1,29 @@
 # Evento🍸- Private Events
 
-## Description
+### 📝 Description
 Private Events is a web application that allows users to create and attend events. It demonstrates the functionality of associations between models in a Ruby on Rails application.
 
-## Features
-- Users can sign up and log in.
-- Users can create events.
-- Users can view events they are attending and events they have created.
-- Events are categorized as past or upcoming based on their date.
+### 🧩 Features
+1. Users can sign up and log in.
+2. Users can create events.
+3. Users can view events they are attending and events they have created.
+4. Events are categorized as past or upcoming based on their date.
 
-## Technologies Used
+### 🌐 Technologies Used
 - Ruby on Rails
 - HTML
 - CSS
 - PostgreSQL
 
-## Setup Instructions
+### 🛠️ Setup Instructions
 
-### Prerequisites
+#### Prerequisites
 - Ruby (version 3.0.0 or higher)
 - Rails (version 7.0.0 or higher)
 - Bundler
 - Git
 
-### Steps
+#### Steps
 1. Clone the repository:
    ```bash
    git clone https://github.com/Surveinit/Private-events.git
@@ -51,10 +51,10 @@ Private Events is a web application that allows users to create and attend event
    http://localhost:3000
    ```
 
-## Usage
-- Sign up or log in with your credentials.
-- Create a new event and specify the date.
-- View the list of events you are attending or have created.
-- Explore past and upcoming events.
+### 📚 Usage
+1. Sign up or log in with your credentials.
+2. Create a new event and specify the date.
+3. View the list of events you are attending or have created.
+4. Explore past and upcoming events.
 
 Feel free to contribute to this project by submitting issues or pull requests!
